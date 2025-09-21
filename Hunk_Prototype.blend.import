@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://jmw8fea0tynr"
-path="res://.godot/imported/animeCharacter.blend-2a73c0292822ec5272d3c69df84cc23c.scn"
+uid="uid://dbqad58jlgp2b"
+path="res://.godot/imported/Hunk_Prototype.blend-f4ce9709d05a01e28baef77bdee01b12.scn"
 
 [deps]
 
-source_file="res://Model_Assets/Character Assets/animeCharacter.blend"
-dest_files=["res://.godot/imported/animeCharacter.blend-2a73c0292822ec5272d3c69df84cc23c.scn"]
+source_file="res://Hunk_Prototype.blend"
+dest_files=["res://.godot/imported/Hunk_Prototype.blend-f4ce9709d05a01e28baef77bdee01b12.scn"]
 
 [params]
 

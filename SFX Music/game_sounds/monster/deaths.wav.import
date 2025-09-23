@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cdq545a8ey7xy"
+path="res://.godot/imported/deaths.wav-7d80dba33878f8d8779b9caff8bdd000.sample"
+
+[deps]
+
+source_file="res://SFX Music/game_sounds/monster/deaths.wav"
+dest_files=["res://.godot/imported/deaths.wav-7d80dba33878f8d8779b9caff8bdd000.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

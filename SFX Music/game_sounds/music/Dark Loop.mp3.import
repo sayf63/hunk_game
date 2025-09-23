@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crs28eqsr8o1v"
+path="res://.godot/imported/Dark Loop.mp3-2cd5065b50dffb48d02106707fddb62d.mp3str"
+
+[deps]
+
+source_file="res://SFX Music/game_sounds/music/Dark Loop.mp3"
+dest_files=["res://.godot/imported/Dark Loop.mp3-2cd5065b50dffb48d02106707fddb62d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

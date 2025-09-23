@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ce4vms2blpvny"
+path="res://.godot/imported/painb.wav-c0ab1952dbd9c7a5a23ccf95e11b47cb.sample"
+
+[deps]
+
+source_file="res://SFX Music/game_sounds/monster/painb.wav"
+dest_files=["res://.godot/imported/painb.wav-c0ab1952dbd9c7a5a23ccf95e11b47cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

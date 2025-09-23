@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dykmnj6yix0lw"
+path="res://.godot/imported/grunt1.wav-5e43bb6c929c92352f497b66a014986f.sample"
+
+[deps]
+
+source_file="res://SFX Music/game_sounds/monster/grunt1.wav"
+dest_files=["res://.godot/imported/grunt1.wav-5e43bb6c929c92352f497b66a014986f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

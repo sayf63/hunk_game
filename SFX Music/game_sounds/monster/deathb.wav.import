@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c132tk1dt3j68"
+path="res://.godot/imported/deathb.wav-5ca2fe9a418aaa808f2a9505b9be1bf4.sample"
+
+[deps]
+
+source_file="res://SFX Music/game_sounds/monster/deathb.wav"
+dest_files=["res://.godot/imported/deathb.wav-5ca2fe9a418aaa808f2a9505b9be1bf4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcsl8gjdsgspj"]
+[gd_scene load_steps=9 format=3 uid="uid://ba224doiek1ng"]
 
-[ext_resource type="PackedScene" uid="uid://ci01pxtgdrx48" path="res://Model_Assets/Character Assets/Hunk_Prototype.glb" id="1_pdjuh"]
-[ext_resource type="PackedScene" uid="uid://lbbur2bxa87n" path="res://Model_Assets/Character Assets/zombieCharacter.glb" id="2_5ope0"]
+[ext_resource type="PackedScene" path="res://Scenes/hunk_prototype.tscn" id="1_dmy1f"]
+[ext_resource type="PackedScene" uid="uid://dkpf2eufifbwx" path="res://Scenes/zombie_character.tscn" id="2_xsofa"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4axbn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,6 +15,10 @@ background_mode = 2
 sky = SubResource("Sky_cyvas")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_lka37"]
+vertices = PackedVector3Array(-9.59256, 0.5, -14.6047, -9.59256, 0.5, 14.3953, 9.40744, 0.5, 14.3953, 9.40744, 0.5, -14.6047)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_uiski"]
 size = Vector2(20, 30)
@@ -31,17 +35,24 @@ environment = SubResource("Environment_5nbjp")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["player"]]
+navigation_mesh = SubResource("NavigationMesh_lka37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092561, 0, -0.104725)
 mesh = SubResource("PlaneMesh_uiski")
+skeleton = NodePath("../..")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_na27u")
 
-[node name="Hunk_Prototype" parent="." instance=ExtResource("1_pdjuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683077, 0.128792, -8.83196)
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_dmy1f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.942334, 0.0281198, -1.52695)
 
-[node name="zombieCharacter" parent="." instance=ExtResource("2_5ope0")]
-transform = Transform3D(-0.969394, 0, -0.245511, 0, 1, 0, 0.245511, 0, -0.969394, 2.47744, 5.96046e-08, 4.76904)
+[node name="zombieCharacter" parent="." instance=ExtResource("2_xsofa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.58913, 0.183102, -7.46546)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.02642, 1.68068, 4.13896)

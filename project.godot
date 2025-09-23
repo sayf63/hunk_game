@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="Hunk"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://Model_Assets/Textures/hunky.png"
 config/icon="res://Model_Assets/Textures/hunky.png"

@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcsl8gjdsgspj"]
+[gd_scene load_steps=11 format=3 uid="uid://bcsl8gjdsgspj"]
 
-[ext_resource type="PackedScene" uid="uid://ci01pxtgdrx48" path="res://Model_Assets/Character Assets/Hunk_Prototype.glb" id="1_pdjuh"]
-[ext_resource type="PackedScene" uid="uid://lbbur2bxa87n" path="res://Model_Assets/Character Assets/zombieCharacter.glb" id="2_5ope0"]
+[ext_resource type="PackedScene" uid="uid://dvf8ffi4w57iy" path="res://Scenes/hunk_prototype.tscn" id="1_nmhf3"]
+[ext_resource type="PackedScene" uid="uid://d2acv0st4ulwn" path="res://Scenes/zombie_character.tscn" id="2_5wreu"]
+[ext_resource type="PackedScene" uid="uid://djtdqi38hvobd" path="res://CameraExperimentScene.tscn" id="3_ktkxr"]
+[ext_resource type="Script" path="res://CameraExperiment.gd" id="4_n4rlk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4axbn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,6 +24,9 @@ size = Vector2(20, 30)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_na27u"]
 data = PackedVector3Array(10, 0, 15, -10, 0, 15, 10, 0, -15, -10, 0, 15, -10, 0, -15, 10, 0, -15)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymsbs"]
+size = Vector3(19.4968, 1, 0.173706)
+
 [node name="Experiment_World" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -40,8 +45,25 @@ mesh = SubResource("PlaneMesh_uiski")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_na27u")
 
-[node name="Hunk_Prototype" parent="." instance=ExtResource("1_pdjuh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.683077, 0.128792, -8.83196)
+[node name="camera1" type="Camera3D" parent="."]
+transform = Transform3D(-0.9996, 0, -0.0282707, 0, 1, 0, 0.0282707, 0, -0.9996, 0, 2.43783, -11.6275)
 
-[node name="zombieCharacter" parent="." instance=ExtResource("2_5ope0")]
-transform = Transform3D(-0.969394, 0, -0.245511, 0, 1, 0, 0.245511, 0, -0.969394, 2.47744, 5.96046e-08, 4.76904)
+[node name="Hunk_Prototype" parent="." groups=["player"] instance=ExtResource("1_nmhf3")]
+transform = Transform3D(-0.999418, 0, 0.0340972, 0, 1, 0, -0.0340972, 0, -0.999418, 0, 0, -7.58792)
+
+[node name="zombieCharacter" parent="." instance=ExtResource("2_5wreu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.29913)
+
+[node name="Area3D" parent="." instance=ExtResource("3_ktkxr")]
+
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228012, 0, -6.81891)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_ymsbs")
+
+[node name="camera2" type="Camera3D" parent="Area3D2"]
+transform = Transform3D(-0.661562, -0.240121, 0.710406, -0.0796087, 0.964483, 0.251865, -0.745653, 0.11007, -0.657181, 3.96572, 2.70882, -0.507287)
+script = ExtResource("4_n4rlk")
+
+[connection signal="body_entered" from="Area3D2" to="Area3D2/camera2" method="_on_area_3d_body_entered"]

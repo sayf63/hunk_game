@@ -14,3 +14,7 @@ config/name="Hunk"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Model_Assets/Textures/hunky.png"
 config/icon="res://Model_Assets/Textures/hunky.png"
+
+[filesystem]
+
+import/blender/enabled=false

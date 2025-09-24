@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba224doiek1ng"]
 
-[ext_resource type="PackedScene" uid="uid://ci01pxtgdrx48" path="res://Model_Assets/Character Assets/Hunk_Prototype.glb" id="1_2qlk6"]
-[ext_resource type="PackedScene" uid="uid://doslife4feqc3" path="res://Model_Assets/Building Assets/room/dea/Psx House.dae" id="2_crw0k"]
+[gd_scene load_steps=11 format=3 uid="uid://bcsl8gjdsgspj"]
+
+[ext_resource type="PackedScene" uid="uid://dvf8ffi4w57iy" path="res://Scenes/hunk_prototype.tscn" id="1_nmhf3"]
+[ext_resource type="PackedScene" uid="uid://d2acv0st4ulwn" path="res://Scenes/zombie_character.tscn" id="2_5wreu"]
+[ext_resource type="PackedScene" uid="uid://djtdqi38hvobd" path="res://CameraExperimentScene.tscn" id="3_ktkxr"]
+[ext_resource type="Script" uid="uid://uhcpgoo1hkwp" path="res://CameraExperiment.gd" id="4_n4rlk"]
+
 
 [node name="world" type="Node3D"]
 
@@ -17,8 +21,12 @@ transform = Transform3D(45.2483, 0, 0, 0, 1.51745, 0, 0, 0, 31.8299, 0, 0, 0)
 transform = Transform3D(1.00487, 0, 0, 0, -0.0419042, 1.00399, 0, -1.00399, -0.0419042, -3.65215, 3.77084, 1.86937)
 light_color = Color(0.384314, 0.552941, 0.592157, 1)
 
-[node name="Hunk_Prototype" parent="." instance=ExtResource("1_2qlk6")]
-transform = Transform3D(-0.888969, 0, -0.457967, 0, 1, 0, 0.457967, 0, -0.888969, -1.2934, 0.791212, 7.91814)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymsbs"]
+size = Vector3(19.4968, 1, 0.173706)
+
+[node name="Experiment_World" type="Node3D"]
+
 
 [node name="Psx House" parent="." instance=ExtResource("2_crw0k")]
 transform = Transform3D(1, 0, 0, 0, 0.93974, 0, 0, 0, 1, 2.81237, -9.53674e-07, 3.23473)
@@ -26,5 +34,36 @@ transform = Transform3D(1, 0, 0, 0, 0.93974, 0, 0, 0, 1, 2.81237, -9.53674e-07, 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.577119, -0.233608, 0.782535, -0.0188841, 0.961775, 0.273189, -0.816442, 0.142885, -0.55947, 5.0814, 3.07815, -5.16607)
 
-[node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(0.978914, -0.0857497, 0.185402, -0.0209606, 0.860667, 0.508737, -0.203193, -0.501896, 0.840722, -1.3726, 3.46084, 8.59244)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092561, 0, -0.104725)
+mesh = SubResource("PlaneMesh_uiski")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_na27u")
+
+[node name="camera1" type="Camera3D" parent="."]
+transform = Transform3D(-0.9996, 0, -0.0282707, 0, 1, 0, 0.0282707, 0, -0.9996, 0, 2.43783, -11.6275)
+
+[node name="Hunk_Prototype" parent="." groups=["player"] instance=ExtResource("1_nmhf3")]
+transform = Transform3D(-0.999418, 0, 0.0340972, 0, 1, 0, -0.0340972, 0, -0.999418, 0, 0, -7.58792)
+
+[node name="zombieCharacter" parent="." instance=ExtResource("2_5wreu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.29913)
+
+[node name="Area3D" parent="." instance=ExtResource("3_ktkxr")]
+
+[node name="Area3D2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228012, 0, -6.81891)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+shape = SubResource("BoxShape3D_ymsbs")
+
+[node name="camera2" type="Camera3D" parent="Area3D2"]
+transform = Transform3D(-0.661562, -0.240121, 0.710406, -0.0796087, 0.964483, 0.251865, -0.745653, 0.11007, -0.657181, 3.96572, 2.70882, -0.507287)
+script = ExtResource("4_n4rlk")
+
+[connection signal="body_entered" from="Area3D2" to="Area3D2/camera2" method="_on_area_3d_body_entered"]
+

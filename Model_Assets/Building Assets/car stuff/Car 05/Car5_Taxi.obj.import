@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bapdawd8frpry"
+path="res://.godot/imported/Car5_Taxi.obj-46cd8f0e29b200b86817a8f1e1108a9c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Car5_Taxi.obj-46cd8f0e29b200b86817a8f1e1108a9c.mesh"]
+
+source_file="res://Model_Assets/Building Assets/car stuff/Car 05/Car5_Taxi.obj"
+dest_files=["res://.godot/imported/Car5_Taxi.obj-46cd8f0e29b200b86817a8f1e1108a9c.mesh", "res://.godot/imported/Car5_Taxi.obj-46cd8f0e29b200b86817a8f1e1108a9c.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

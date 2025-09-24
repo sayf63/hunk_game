@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://djtdqi38hvobd"]
+
+[ext_resource type="Script" path="res://CameraExperiment.gd" id="1_lthdo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ymsbs"]
+size = Vector3(19.4968, 1, 0.173706)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228012, 0, -3.63274)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ymsbs")
+
+[node name="camera2" type="Camera3D" parent="."]
+transform = Transform3D(0.323437, 0.263989, -0.90868, -0.0796087, 0.964483, 0.251865, 0.942895, -0.00912347, 0.332965, -5.21515, 1.2732, 3.10051)
+script = ExtResource("1_lthdo")
+
+[connection signal="body_entered" from="." to="camera2" method="_on_area_3d_body_entered"]

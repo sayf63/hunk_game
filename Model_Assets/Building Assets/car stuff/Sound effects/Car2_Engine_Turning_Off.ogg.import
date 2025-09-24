@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ciye1d3qgpuwp"
+path="res://.godot/imported/Car2_Engine_Turning_Off.ogg-ca5c4a282a2462f096f1bab4336f408e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Model_Assets/Building Assets/car stuff/Sound effects/Car2_Engine_Turning_Off.ogg"
+dest_files=["res://.godot/imported/Car2_Engine_Turning_Off.ogg-ca5c4a282a2462f096f1bab4336f408e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

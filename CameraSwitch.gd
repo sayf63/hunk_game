@@ -16,4 +16,3 @@ func _on_Area3D_body_entered(body: Node3D):
 		var target_camera = get_node(camera_2)
 		if target_camera:
 			target_camera.make_current()
-

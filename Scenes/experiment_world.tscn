@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dvf8ffi4w57iy" path="res://Scenes/hunk_prototype.tscn" id="1_nmhf3"]
 [ext_resource type="PackedScene" uid="uid://d2acv0st4ulwn" path="res://Scenes/zombie_character.tscn" id="2_5wreu"]
 [ext_resource type="PackedScene" uid="uid://djtdqi38hvobd" path="res://CameraExperimentScene.tscn" id="3_ktkxr"]
-[ext_resource type="Script" path="res://CameraExperiment.gd" id="4_n4rlk"]
+[ext_resource type="Script" uid="uid://uhcpgoo1hkwp" path="res://CameraExperiment.gd" id="4_n4rlk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4axbn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

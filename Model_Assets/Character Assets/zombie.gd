@@ -3,9 +3,11 @@ extends CharacterBody3D
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
 @onready var anim_tree: AnimationTree = $AnimationTree
 
+
+
 var player: Node3D
 const SPEED: float = 4.0
-@export var player_path = "../player"
+@export var player_path = "player"
 const RANGE: float = 20.0
 
 func _ready() -> void:

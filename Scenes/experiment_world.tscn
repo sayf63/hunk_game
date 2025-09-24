@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=11 format=3 uid="uid://bcsl8gjdsgspj"]
 
 [ext_resource type="PackedScene" uid="uid://dvf8ffi4w57iy" path="res://Scenes/hunk_prototype.tscn" id="1_nmhf3"]
@@ -5,36 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://djtdqi38hvobd" path="res://CameraExperimentScene.tscn" id="3_ktkxr"]
 [ext_resource type="Script" uid="uid://uhcpgoo1hkwp" path="res://CameraExperiment.gd" id="4_n4rlk"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4axbn"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_cyvas"]
-sky_material = SubResource("ProceduralSkyMaterial_4axbn")
+[node name="world" type="Node3D"]
 
-[sub_resource type="Environment" id="Environment_5nbjp"]
-background_mode = 2
-sky = SubResource("Sky_cyvas")
-tonemap_mode = 2
-glow_enabled = true
+[node name="map" type="Node3D" parent="."]
+transform = Transform3D(0.995158, 0, 0, 0, 0.995158, 0, 0, 0, 0.995158, 0, 0, 0)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_uiski"]
-size = Vector2(20, 30)
+[node name="CSGBox3D" type="CSGBox3D" parent="map"]
+transform = Transform3D(45.2483, 0, 0, 0, 1.51745, 0, 0, 0, 31.8299, 0, 0, 0)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_na27u"]
-data = PackedVector3Array(10, 0, 15, -10, 0, 15, 10, 0, -15, -10, 0, 15, -10, 0, -15, 10, 0, -15)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="map"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="map"]
+transform = Transform3D(1.00487, 0, 0, 0, -0.0419042, 1.00399, 0, -1.00399, -0.0419042, -3.65215, 3.77084, 1.86937)
+light_color = Color(0.384314, 0.552941, 0.592157, 1)
+
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ymsbs"]
 size = Vector3(19.4968, 1, 0.173706)
 
 [node name="Experiment_World" type="Node3D"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_5nbjp")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
-shadow_enabled = true
+[node name="Psx House" parent="." instance=ExtResource("2_crw0k")]
+transform = Transform3D(1, 0, 0, 0, 0.93974, 0, 0, 0, 1, 2.81237, -9.53674e-07, 3.23473)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.577119, -0.233608, 0.782535, -0.0188841, 0.961775, 0.273189, -0.816442, 0.142885, -0.55947, 5.0814, 3.07815, -5.16607)
+
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.092561, 0, -0.104725)
@@ -67,3 +66,4 @@ transform = Transform3D(-0.661562, -0.240121, 0.710406, -0.0796087, 0.964483, 0.
 script = ExtResource("4_n4rlk")
 
 [connection signal="body_entered" from="Area3D2" to="Area3D2/camera2" method="_on_area_3d_body_entered"]
+

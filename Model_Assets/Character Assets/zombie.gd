@@ -7,7 +7,7 @@ extends CharacterBody3D
 
 var player: Node3D
 const SPEED: float = 4.0
-@export var player_path = "player"
+@export var player_path = "../player"
 const RANGE: float = 20.0
 
 func _ready() -> void:
